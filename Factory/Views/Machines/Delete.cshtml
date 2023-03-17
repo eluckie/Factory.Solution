@@ -3,12 +3,13 @@
 }
 
 <h2>Are you sure you want to remove @Model.Name?</h2>
-
+<br>
 @using (Html.BeginForm())
 {
   <input type="submit" value="kill it.">
 }
 <br>
+<hr>
 <p>@Html.ActionLink("NVM NVM NVM", "Details", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Manage machines", "Index")</p>
 <p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>

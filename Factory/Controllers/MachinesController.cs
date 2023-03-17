@@ -58,5 +58,24 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    public ActionResult Edit(int id)
+    {
+      Machine thisGuy = _db.Machines.FirstOrDefault(thing => thing.MachineId == id);
+      return View(thisGuy);
+    }
+    [HttpPost]
+    public ActionResult Edit(Machine thing)
+    {
+      if(!ModelState.IsValid)
+      {
+        return View(thing);
+      }
+      else
+      {
+      _db.Machines.Update(thing);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+      }
+    }
   }
 }

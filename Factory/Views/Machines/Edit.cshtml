@@ -2,11 +2,13 @@
   Layout = "_Layout";
 }
 
-<h2>Let's add this bad boy</h2>
-
 @model Factory.Models.Machine
+
+<h2>Edit @Model.Name</h2>
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.MachineId)
+
   <p>@Html.ValidationMessageFor(model => model.Name, "", new { @style = "font-weight:600; color:red;"})</p>
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
@@ -21,6 +23,7 @@
 }
 <br>
 <hr>
-<p>@Html.ActionLink("Actually, NVM", "Index")</p>
+<p>@Html.ActionLink("NVM NVM NVM", "Details", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Manage machines", "Index")</p>
+<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
 <p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
-<p>@Html.ActionLink("Matter fact, let's see engineers instead", "Index", "Engineers")</p>

@@ -23,8 +23,7 @@
   }
 </ul>
 <hr>
-
-<p>@Html.ActionLink("Certify someone new", "AddRepairs", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink($"Edit {Model.Name}", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink($"Kill {Model.Name}", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
 <p>@Html.ActionLink("Manage machines", "Index")</p>
