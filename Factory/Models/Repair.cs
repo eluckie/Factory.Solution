@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 namespace Factory.Models
 {
-  public class Machine
+  public class Repair
   {
-    public int MachineId { get; set; }
+    public int RepairId { get; set; }
   }
 }
