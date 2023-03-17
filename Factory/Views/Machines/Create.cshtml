@@ -10,6 +10,9 @@
   <p>@Html.ValidationMessageFor(model => model.Name, "", new { @style = "font-weight:600; color:red;"})</p>
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
+  <p>@Html.ValidationMessageFor(model => model.Description, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
   <p>@Html.ValidationMessageFor(model => model.InstallDate, "", new { @style = "font-weight:600; color:red;"})</p>
   @Html.Label("Install Date")
   @Html.EditorFor(model => model.InstallDate)

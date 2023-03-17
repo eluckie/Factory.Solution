@@ -29,7 +29,7 @@
   {
     <li>
       @Html.ActionLink(@thing.Name, "Details", "Machines", new { id = @thing.MachineId })
-      <br>installed @thing.InstallDate.ToString("d")
+      <br>@thing.Description
     </li>
   }
 </ul>
