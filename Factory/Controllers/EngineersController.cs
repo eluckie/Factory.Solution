@@ -51,7 +51,7 @@ namespace Factory.Controllers
     public ActionResult AddRepairs(int id)
     {
       Engineer thisGuy = _db.Engineers.FirstOrDefault(guy => guy.EngineerId == id);
-      ViewBag.machines = _db.Machines
+      ViewBag.Machines = _db.Machines
         .ToList();
       return View(thisGuy);
     }
@@ -61,7 +61,7 @@ namespace Factory.Controllers
       foreach (int robot in robots)
       {
         #nullable enable
-        Repair? joinEntity = _db.Repairs.FirstOrDefault(entry => (entry.MachineId == robot && entry.EngineerId == engineerId));
+        Repair? joinEntity = _db.Repairs.FirstOrDefault(entry => (entry.EngineerId == robot && entry.EngineerId == engineerId));
         #nullable disable
 
         if (joinEntity == null && engineerId != 0)
@@ -73,6 +73,19 @@ namespace Factory.Controllers
           _db.SaveChanges();
         }
       }
+      return RedirectToAction("Index");
+    }
+    public ActionResult Delete(int id)
+    {
+      Engineer thisGuy = _db.Engineers.FirstOrDefault(thing => thing.EngineerId == id);
+      return View(thisGuy);
+    }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Engineer thisGuy = _db.Engineers.FirstOrDefault(thing => thing.EngineerId == id);
+      _db.Engineers.Remove(thisGuy);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
   }

@@ -25,6 +25,7 @@
 <hr>
 
 <p>@Html.ActionLink($"Give {Model.Name} some robots", "AddRepairs", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink($"Break up with {Model.Name}", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Manage engineers", "Index")</p>
 <p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
 <p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
