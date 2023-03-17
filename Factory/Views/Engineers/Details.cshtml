@@ -18,7 +18,7 @@
       {
         @foreach (Repair tech in Model.Repairs)
         {
-          <li>@Html.ActionLink(@tech.Machine.Name, "Details", "Machines")</li>
+          <li>@Html.ActionLink(@tech.Machine.Name, "Details", "Machines") | @tech.Machine.Description</li>
         }
       }
     </ul>

@@ -1,3 +1,30 @@
 @{
   Layout = "_Layout";
 }
+
+@using Factory.Models;
+
+<h2>@Model.Name</h2>
+<h5>@Model.Description</h5>
+<h5>Install Date: @Model.InstallDate.ToString("d")</h5>
+<hr>
+<h4>Certified technicians</h4>
+<ul>
+  @if (Model.Repairs.Count == 0)
+  {
+    <p>No dice! Teach some folks</p>
+  }
+  else
+  {
+    @foreach (Repair tech in Model.Repairs)
+  {
+      <li>@Html.ActionLink(@tech.Engineer.Name, "Details", "Engineers") (@tech.Engineer.Pronouns)</li>
+    }
+  }
+</ul>
+<hr>
+
+<p>@Html.ActionLink("Certify someone new", "AddRepairs", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
+<p>@Html.ActionLink("Manage machines", "Index")</p>
+<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>

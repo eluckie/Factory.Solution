@@ -13,6 +13,6 @@ namespace Factory.Models
     public string Description { get; set; }
     [Required]
     public DateTime InstallDate { get; set; }
-    List<Repair> Repairs { get; set; }
+    public List<Repair> Repairs { get; set; }
   }
 }
