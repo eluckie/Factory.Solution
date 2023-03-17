@@ -16,7 +16,11 @@ namespace Factory.Controllers
     }
     public ActionResult Index()
     {
-      return View();
+      List<Engineer> model = _db.Engineers
+        .Include(dude => dude.Repairs)
+        .ThenInclude(join => join.Machine)
+        .ToList();
+      return View(model);
     }
     public ActionResult Create()
     {
