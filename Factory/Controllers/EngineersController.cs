@@ -51,8 +51,7 @@ namespace Factory.Controllers
     public ActionResult AddRepairs(int id)
     {
       Engineer thisGuy = _db.Engineers.FirstOrDefault(guy => guy.EngineerId == id);
-      ViewBag.Machines = _db.Machines
-        .ToList();
+      ViewBag.Machines = _db.Machines.ToList();
       return View(thisGuy);
     }
     [HttpPost]
@@ -66,14 +65,11 @@ namespace Factory.Controllers
 
         if (joinEntity == null && engineerId != 0)
         {
-          Repair newRepair = new Repair();
-          newRepair.MachineId = robot;
-          newRepair.EngineerId = engineerId;
-          _db.Repairs.Add(newRepair);
+          _db.Repairs.Add(new Repair() { MachineId = robot, EngineerId = engineerId});
           _db.SaveChanges();
         }
       }
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = engineerId });
     }
     public ActionResult Delete(int id)
     {
@@ -87,6 +83,14 @@ namespace Factory.Controllers
       _db.Engineers.Remove(thisGuy);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public ActionResult DeleteRepair(int repairId, int engineerId)
+    {
+      Repair join = _db.Repairs.FirstOrDefault(join => join.RepairId == repairId);
+      _db.Repairs.Remove(join);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = engineerId });
     }
   }
 }

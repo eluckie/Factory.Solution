@@ -19,6 +19,12 @@
     @foreach (Repair tech in Model.Repairs)
     {
       <li>@Html.ActionLink(@tech.Machine.Name, "Details", "Machines") | @tech.Machine.Description</li>
+      @using (Html.BeginForm("DeleteRepair", "Engineers"))
+      {
+        @Html.Hidden("repairId", @tech.RepairId)
+        @Html.Hidden("engineerId", @tech.EngineerId)
+        <input type="submit" value="UN-certify">
+      }
     }
   }
 </ul>
