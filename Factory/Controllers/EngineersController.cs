@@ -48,5 +48,32 @@ namespace Factory.Controllers
         .FirstOrDefault(guy => guy.EngineerId == id);
       return View(thisGuy);
     }
+    public ActionResult AddRepairs(int id)
+    {
+      Engineer thisGuy = _db.Engineers.FirstOrDefault(guy => guy.EngineerId == id);
+      ViewBag.machines = _db.Machines
+        .ToList();
+      return View(thisGuy);
+    }
+    [HttpPost]
+    public ActionResult AddRepairs(List<int> robots, int engineerId)
+    {
+      foreach (int robot in robots)
+      {
+        #nullable enable
+        Repair? joinEntity = _db.Repairs.FirstOrDefault(entry => (entry.MachineId == robot && entry.EngineerId == engineerId));
+        #nullable disable
+
+        if (joinEntity == null && engineerId != 0)
+        {
+          Repair newRepair = new Repair();
+          newRepair.MachineId = robot;
+          newRepair.EngineerId = engineerId;
+          _db.Repairs.Add(newRepair);
+          _db.SaveChanges();
+        }
+      }
+      return RedirectToAction("Index");
+    }
   }
 }

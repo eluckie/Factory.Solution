@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+@using Factory.Models;
+
+<h2>Select which certifications to add for @Model.Name</h2>
+<form method="post">
+  <table class="table">
+    <tr>
+      <th>Machine</th>
+      <th>Description</th>
+      <th>Select</th>
+    </tr>
+    @foreach (Machine robot in ViewBag.machines)
+    {
+      <tr>
+        <td>@robot.Name</td>
+        <td>@robot.Description</td>
+        <td><input name="robots" type="checkbox" value="@robot.MachineId"></td>
+      </tr>
+    }
+  </table>
+  <input type="hidden" value="@Model.EngineerId" name="engineerId" id="engineerId">
+  <input type="submit" value="Let's gooooo">
+</form>
+<br>
+<p>@Html.ActionLink("Scratch that", "Details", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Manage engineers", "Index")</p>
+<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
+<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
