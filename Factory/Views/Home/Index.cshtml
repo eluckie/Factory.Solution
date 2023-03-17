@@ -1,3 +1,39 @@
 @{
   Layout = "_Layout";
 }
+
+@using Factory.Models;
+
+<h1>Welcome to Dr. Sillystringz</h1>
+<hr>
+
+<h4>Engineers</h4>
+@if (ViewBag.engineers.Count == 0)
+{
+  <p>Nobody's home!</p>
+}
+<ul>
+  @foreach (Engineer dude in ViewBag.engineers)
+  {
+    <li>@Html.ActionLink(@dude.Name, "Details", "Engineers", new { id = @dude.EngineerId }) | @dude.Pronouns</li>
+  }
+</ul>
+
+<h4>Machines</h4>
+@if (ViewBag.machines.Count == 0)
+{
+  <p>Nothing to see here</p>
+}
+<ul>
+  @foreach (Machine thing in ViewBag.machines)
+  {
+    <li>@Html.ActionLink(@thing.Name, "Details", "Machines", new { id = @thing.MachineId }) | @thing.InstallDate</li>
+  }
+</ul>
+
+<hr>
+<h2>What do we wanna do today?</h2>
+<p>@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
+<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
+<p>@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
+<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
