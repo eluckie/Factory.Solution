@@ -19,5 +19,23 @@ namespace Factory.Controllers
       List<Machine> model = _db.Machines.ToList();
       return View(model);
     }
+    public ActionResult Create()
+    {
+      return View();
+    }
+    [HttpPost]
+    public ActionResult Create(Machine thingy)
+    {
+      if(!ModelState.IsValid)
+      {
+        return View(thingy);
+      }
+      else
+      {
+        _db.Machines.Add(thingy);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+    }
   }
 }

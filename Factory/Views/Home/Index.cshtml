@@ -27,7 +27,10 @@
 <ul>
   @foreach (Machine thing in ViewBag.machines)
   {
-    <li>@Html.ActionLink(@thing.Name, "Details", "Machines", new { id = @thing.MachineId }) | @thing.InstallDate</li>
+    <li>
+      @Html.ActionLink(@thing.Name, "Details", "Machines", new { id = @thing.MachineId })
+      <br>installed @thing.InstallDate.ToString("d")
+    </li>
   }
 </ul>
 

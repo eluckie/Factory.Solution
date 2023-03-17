@@ -1,3 +1,22 @@
 @{
   Layout = "_Layout";
 }
+
+<h2>Let's add this bad boy</h2>
+
+@model Factory.Models.Machine
+@using (Html.BeginForm())
+{
+  <p>@Html.ValidationMessageFor(model => model.Name, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <p>@Html.ValidationMessageFor(model => model.InstallDate, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.Label("Install Date")
+  @Html.EditorFor(model => model.InstallDate)
+  <br><br>
+  <input type="submit" value="LET'S RAGE">
+}
+<br>
+<p>@Html.ActionLink("Actually, NVM", "Index")</p>
+<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+<p>@Html.ActionLink("Matter fact, let's see engineers instead", "Index", "Engineers")</p>
