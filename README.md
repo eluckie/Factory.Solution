@@ -47,12 +47,11 @@ _**{WORK IN PROGRESS}**_
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* No known bugs.
 
 ## Stretch Plans
 
-* Add all CRUD methods to both classes
+* Add path to view all certifications (Repairs > Index)
 * Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired
 * Add properties to specify if an engineer is idle or actively working on repairs
 * Add inspection dates to the machines, or dates of license renewal to the engineers
