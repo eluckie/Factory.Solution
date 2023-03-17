@@ -1,3 +1,25 @@
 @{
   Layout = "_Layout";
 }
+
+<h2>Let's get the new guy in</h2>
+
+@model Factory.Models.Engineer
+@using (Html.BeginForm())
+{
+  <p>@Html.ValidationMessageFor(model => model.Name, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <p>@Html.ValidationMessageFor(model => model.Pronouns, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.LabelFor(model => model.Pronouns)
+  @Html.TextBoxFor(model => model.Pronouns)
+  <p>@Html.ValidationMessageFor(model => model.HireDate, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.Label("Hire Date")
+  @Html.EditorFor(model => model.HireDate)
+  <br><br>
+  <input type="submit" value="give them LIFE">
+}
+<br>
+<p>@Html.ActionLink("Actually, NVM", "Index")</p>
+<p>@Html.ActionLink("ALL the way nvm", "Index", "Home")</p>
+<p>@Html.ActionLink("Matter fact, let's see machines instead", "Index", "Machines")</p>
