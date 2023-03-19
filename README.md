@@ -34,6 +34,8 @@ An MVC web application to manage a factory's engineers and the machines they are
 
 **/Machines/Details/{id}** A page that displays the selected machine's name, description, install date, and any technicians certified for that machine. From there, the user is also able to choose to edit or delete the selected machine, as well as add some new engineers to be certified
 
+**/Machines/AddEngineer/{id}** A page that displays the selected machine's name and a drop down list of current engineers. The user is able to select one engineer from the list at a time to _Make it official_ which will certify the selected engineer and re-route to the selected machine's details page, showing the updated list of certified engineers
+
 ## Setup/Installation Requirements
 
 1. Clone this repository
@@ -65,7 +67,6 @@ An MVC web application to manage a factory's engineers and the machines they are
 
 ## Stretch Plans
 
-* Add AddEngineer path to machines details page - ADD TO README PATHS
 * Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired
 * Add properties to specify if an engineer is idle or actively working on repairs
 * Add inspection dates to the machines, or dates of license renewal to the engineers
