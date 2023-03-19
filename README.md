@@ -18,7 +18,7 @@
 An MVC web application to manage a factory's engineers and the machines they are licensed to fix. The factory manager is able to add a list of engineers, a list of machines, and specify which engineers are licensed to repair which machines.
 
 ### Paths
-_**{WORK IN PROGRESS}**_
+
 
 ## Setup/Installation Requirements
 
