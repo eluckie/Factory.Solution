@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>Change @Model.Name</h2>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  <p>@Html.ValidationMessageFor(model => model.Name, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <p>@Html.ValidationMessageFor(model => model.Pronouns, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.LabelFor(model => model.Pronouns)
+  @Html.TextBoxFor(model => model.Pronouns)
+  <p>@Html.ValidationMessageFor(model => model.HireDate, "", new { @style = "font-weight:600; color:red;"})</p>
+  @Html.Label("Hire Date")
+  @Html.EditorFor(model => model.HireDate)
+  <br><br>
+  <input type="submit" value="Let it happen">
+}
+<br>
+<hr>
+<p>@Html.ActionLink("NVM NVM NVM", "Details", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Manage engineers", "Index")</p>
+<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
+<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>

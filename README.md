@@ -65,7 +65,6 @@ An MVC web application to manage a factory's engineers and the machines they are
 
 ## Stretch Plans
 
-* Add Edit path for engineers
 * Add AddEngineer path to machines details page - ADD TO README PATHS
 * Add properties to specify if a machine is operational, malfunctioning, or in the process of being repaired
 * Add properties to specify if an engineer is idle or actively working on repairs
