@@ -74,7 +74,7 @@ namespace Factory.Controllers
       {
       _db.Machines.Update(thing);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = thing.MachineId });
       }
     }
     public ActionResult AddEngineer(int id)
