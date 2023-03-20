@@ -8,15 +8,13 @@
   <h2 id="ename">@Model.Name</h2>
   <h4>@Model.Pronouns</h4>
   <p>Hire Date: <span id="accent">@Model.HireDate.ToString("d")</span></p>
-</div>
-<hr>
+  <hr>
 
-<div id="details">
   <h4>c e r t i f i c a t i o n s</h4>
   <ul>
     @if (Model.Repairs.Count == 0)
     {
-      <p>No dice! Teach them some things</p>
+      <p id="accent">No dice! Teach them some things</p>
     }
     else
     {

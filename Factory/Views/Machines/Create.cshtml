@@ -2,25 +2,28 @@
   Layout = "_Layout";
 }
 
+@model Factory.Models.Machine
+
+<div id="details">
 <h2>Let's add this bad boy</h2>
 
-@model Factory.Models.Machine
 @using (Html.BeginForm())
 {
   <p>@Html.ValidationMessageFor(model => model.Name, "", new { @style = "font-weight:600; color:red;"})</p>
-  @Html.LabelFor(model => model.Name)
+  <span id="accent">@Html.LabelFor(model => model.Name)</span>
   @Html.TextBoxFor(model => model.Name)
   <p>@Html.ValidationMessageFor(model => model.Description, "", new { @style = "font-weight:600; color:red;"})</p>
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
+  <span id="accent">@Html.LabelFor(model => model.Description)</span>
+  @Html.TextAreaFor(model => model.Description)
   <p>@Html.ValidationMessageFor(model => model.InstallDate, "", new { @style = "font-weight:600; color:red;"})</p>
-  @Html.Label("Install Date")
+  <span id="accent">@Html.Label("Install Date")</span>
   @Html.EditorFor(model => model.InstallDate)
   <br><br>
-  <input type="submit" value="LET'S RAGE">
+  <input type="submit" value="LET'S RAGE" id="larger-button">
 }
-<br>
+</div>
 <hr>
-<p>@Html.ActionLink("Actually, NVM", "Index")</p>
-<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
-<p>@Html.ActionLink("Matter fact, let's see engineers instead", "Index", "Engineers")</p>
+
+<p id="mlink">@Html.ActionLink("Actually, NVM", "Index")</p>
+<p id="elink">@Html.ActionLink("Let's see engineers instead", "Index", "Engineers")</p>
+<p id="hlink">@Html.ActionLink("All the way nvm", "Index", "Home")</p>

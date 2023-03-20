@@ -13,7 +13,7 @@
     }
     @foreach (Engineer dude in Model)
     {
-      <p><span id="list">@Html.ActionLink(@dude.Name, "Details", new { id = @dude.EngineerId })</span> - @dude.Pronouns</p>
+      <p><span id="list"><span id="accent">@Html.ActionLink(@dude.Name, "Details", new { id = @dude.EngineerId })</span></span> - @dude.Pronouns</p>
     }
   </div>
   <hr>

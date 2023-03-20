@@ -4,21 +4,26 @@
 
 @using Factory.Models;
 
-<h2>The Machines</h2>
+<div id="index">
+  <div id="details">
+    <h2 id="ename">The Machines</h2>
 
-@if (Model.Count == 0)
-{
-  <p>The list is empty... For now</p>
-}
-@foreach (Machine thing in Model)
-{
-  <p>
-    @Html.ActionLink(@thing.Name, "Details", new { id = @thing.MachineId })
-    <br>@thing.Description
-  </p>
-}
-<hr>
-<p>@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
-<p>@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
-<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+    @if (Model.Count == 0)
+    {
+      <p id="accent">The list is empty... For now</p>
+    }
+    @foreach (Machine thing in Model)
+    {
+      <p>
+        <span id="accent"><span id="list">@Html.ActionLink(@thing.Name, "Details", new { id = @thing.MachineId })</span></span>
+        <br>@thing.Description
+      </p>
+    }
+  </div>
+  <hr>
+
+  <p id="mlink">@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
+  <p id="elink">@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
+  <p id="elink">@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
+  <p id="hlink">@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+</div>
