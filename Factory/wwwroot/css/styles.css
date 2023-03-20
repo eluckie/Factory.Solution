@@ -1,0 +1,27 @@
+#title {
+  padding:20px;
+  text-align:center;
+}
+
+#title-img {
+  width:700px;
+}
+
+#machines {
+  flex:60%;
+  padding:20px;
+  border:2px dashed black;
+  margin:10px;
+}
+
+#engineers {
+  flex:40%;
+  padding:20px;
+  border:2px dashed black;
+  margin:10px;
+}
+
+#lists {
+  display:flex;
+  padding:20px;
+}
