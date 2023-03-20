@@ -3,19 +3,24 @@
 }
 
 @using Factory.Models;
+<div id="index">
+  <div id="details">
+    <h2><span id="ename">Meet the family</span></h2>
 
-<h2>See the family</h2>
+    @if (Model.Count == 0)
+    {
+      <p id="accent">Yea, nobody's home 😔</p>
+    }
+    @foreach (Engineer dude in Model)
+    {
+      <p><span id="list">@Html.ActionLink(@dude.Name, "Details", new { id = @dude.EngineerId })</span> - @dude.Pronouns</p>
+    }
+  </div>
+  <hr>
+  <br>
 
-@if (Model.Count == 0)
-{
-  <p>Yea, nobody's home 😔</p>
-}
-@foreach (Engineer dude in Model)
-{
-  <p>@Html.ActionLink(@dude.Name, "Details", new { id = @dude.EngineerId }) - @dude.Pronouns</p>
-}
-<hr>
-<p>@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
-<p>@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
-<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
-<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+  <p id="elink">@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
+  <p id="mlink">@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
+  <p id="mlink">@Html.ActionLink("Manage machines", "Index", "Machines")</p>
+  <p id="hlink">@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+</div>

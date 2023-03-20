@@ -2,14 +2,15 @@
   Layout = "_Layout";
 }
 
-<h2>Are you sure you want to remove @Model.Name?</h2>
+<h2 id="details">Are you sure you want to remove <span id="ename">@Model.Name</span>?</h2>
 
 @using (Html.BeginForm())
 {
-  <input type="submit" value="Get them out of my sight... Forever">
+  <input type="submit" value="Get them out of my sight... Forever" id="larger-button">
 }
-<br>
-<p>@Html.ActionLink("NVM NVM NVM", "Details", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Manage engineers", "Index")</p>
-<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
-<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+<hr>
+
+<p id="elink">@Html.ActionLink("NVM NVM NVM", "Details", new { id = Model.EngineerId })</p>
+<p id="elink">@Html.ActionLink("Manage engineers", "Index")</p>
+<p id="mlink">@Html.ActionLink("Manage machines", "Index", "Machines")</p>
+<p id="hlink">@Html.ActionLink("All the way nvm", "Index", "Home")</p>

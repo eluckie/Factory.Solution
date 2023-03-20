@@ -46,8 +46,9 @@ a {
 #elink {
   padding:4px;
   border:1px dotted black;
-  width: 250px;
+  width: 300px;
   margin:10px auto;
+  text-align:center;
 }
 
 #elink:hover {
@@ -59,8 +60,9 @@ a {
 #mlink {
   padding:4px;
   border:1px dotted black;
-  width: 250px;
+  width: 300px;
   margin:10px auto;
+  text-align:center;
 }
 
 #mlink:hover {
@@ -69,10 +71,23 @@ a {
   background-color:lightgray;
 }
 
+#hlink {
+  padding:4px;
+  width: 300px;
+  margin:10px auto;
+  text-align:center;
+  font-weight:bold;
+}
+
+#hlink:hover {
+  font-family:monospace;
+  border:0px;
+}
+
 #homepage {
   background-image:url(../img/rock.png);
   background-repeat:no-repeat;
-  background-size:150px;
+  background-size:200px;
   background-position-x:50px;
   background-position-y:bottom;
 }
@@ -83,4 +98,47 @@ a {
 
 h4 {
   font-family:monospace;
+}
+
+#ename {
+  font-family:monospace;
+  color:darkred;
+  font-weight:bold;
+}
+
+#details {
+  margin:20px;
+}
+
+#accent {
+  color:darkred;
+  font-family:monospace;
+}
+
+#button {
+  background-color:rgb(137, 83, 83);
+  color:white;
+  font-family:monospace;
+  font-size:small;
+}
+
+#larger-button {
+  background-color:rgb(137, 83, 83);
+  color:white;
+  font-family:monospace;
+  text-align:center;
+  padding:10px;
+  margin:20px;
+}
+
+#list {
+  font-size:large;
+}
+
+#index {
+  background-image:url(../img/rock.png);
+  background-repeat:no-repeat;
+  background-size:150px;
+  background-position-x:1000px;
+  background-position-y:bottom;
 }

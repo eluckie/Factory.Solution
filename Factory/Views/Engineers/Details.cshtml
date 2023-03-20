@@ -4,35 +4,40 @@
 
 @using Factory.Models;
 
-<h2>@Model.Name</h2>
-<h4>@Model.Pronouns</h4>
-<p>Hire Date: @Model.HireDate.ToString("d")</p>
-<hr>
-<h4>Certifications</h4>
-<ul>
-  @if (Model.Repairs.Count == 0)
-  {
-    <p>No dice! Teach them some things</p>
-  }
-  else
-  {
-    @foreach (Repair tech in Model.Repairs)
-    {
-      <li>@Html.ActionLink(@tech.Machine.Name, "Details", "Machines") | @tech.Machine.Description</li>
-      @using (Html.BeginForm("DeleteRepair", "Engineers"))
-      {
-        @Html.Hidden("repairId", @tech.RepairId)
-        @Html.Hidden("engineerId", @tech.EngineerId)
-        <input type="submit" value="UN-certify">
-      }
-    }
-  }
-</ul>
+<div id="details">
+  <h2 id="ename">@Model.Name</h2>
+  <h4>@Model.Pronouns</h4>
+  <p>Hire Date: <span id="accent">@Model.HireDate.ToString("d")</span></p>
+</div>
 <hr>
 
-<p>@Html.ActionLink($"Give {Model.Name} some robots", "AddRepairs", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink($"{Model.Name} should change...", "Edit", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink($"Break up with {Model.Name}", "Delete", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Manage engineers", "Index")</p>
-<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
-<p>@Html.ActionLink("All the way nvm", "Index", "Home")</p>
+<div id="details">
+  <h4>c e r t i f i c a t i o n s</h4>
+  <ul>
+    @if (Model.Repairs.Count == 0)
+    {
+      <p>No dice! Teach them some things</p>
+    }
+    else
+    {
+      @foreach (Repair tech in Model.Repairs)
+      {
+        <li><span id="list">@Html.ActionLink(@tech.Machine.Name, "Details", "Machines", new { id = @tech.MachineId})</span> | @tech.Machine.Description</li>
+        @using (Html.BeginForm("DeleteRepair", "Engineers"))
+        {
+          @Html.Hidden("repairId", @tech.RepairId)
+          @Html.Hidden("engineerId", @tech.EngineerId)
+          <input type="submit" value="UN-certify" id="button">
+        }
+      }
+    }
+  </ul>
+</div>
+<hr>
+
+<p id="elink">@Html.ActionLink($"Give {Model.Name} some robots", "AddRepairs", new { id = Model.EngineerId })</p>
+<p id="elink">@Html.ActionLink($"{Model.Name} should change...", "Edit", new { id = Model.EngineerId })</p>
+<p id="elink">@Html.ActionLink($"Break up with {Model.Name}", "Delete", new { id = Model.EngineerId })</p>
+<p id="elink">@Html.ActionLink("Manage engineers", "Index")</p>
+<p id="mlink">@Html.ActionLink("Manage machines", "Index", "Machines")</p>
+<p id="hlink">@Html.ActionLink("All the way nvm", "Index", "Home")</p>
