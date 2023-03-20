@@ -7,42 +7,46 @@
   <img src="https://see.fontimg.com/api/renderfont4/1GLd4/eyJyIjoiZHciLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiJ9/RHIuIFNpbGx5c3RyaW5neg/caramelspersonaluse-regular.png" alt="Dr Sillystringz in a fun squishy red font" id="title-img">
 </div>
 
-<div id="lists">
-  <div id="engineers">
-    <h4>Engineers</h4>
-    @if (ViewBag.engineers.Count == 0)
-    {
-      <p>Nobody's home!</p>
-    }
-    <ul>
-      @foreach (Engineer dude in ViewBag.engineers)
+<div id="homepage">
+  <div id="lists">
+    <div id="engineers">
+      <h4>e n g i n e e r s</h4>
+      @if (ViewBag.engineers.Count == 0)
       {
-        <li>@Html.ActionLink(@dude.Name, "Details", "Engineers", new { id = @dude.EngineerId }) - @dude.Pronouns</li>
+        <p>Nobody's home!</p>
       }
-    </ul>
+      <ul>
+        @foreach (Engineer dude in ViewBag.engineers)
+        {
+          <li>@Html.ActionLink(@dude.Name, "Details", "Engineers", new { id = @dude.EngineerId }) - @dude.Pronouns</li>
+        }
+      </ul>
+    </div>
+
+    <div id="machines">
+      <h4>m a c h i n e s</h4>
+      @if (ViewBag.machines.Count == 0)
+      {
+        <p>Nothing to see here</p>
+      }
+      <ul>
+        @foreach (Machine thing in ViewBag.machines)
+        {
+          <li>
+            @Html.ActionLink(@thing.Name, "Details", "Machines", new { id = @thing.MachineId })
+            <br>@thing.Description
+          </li>
+        }
+      </ul>
+    </div>
   </div>
 
-  <div id="machines">
-    <h4>Machines</h4>
-    @if (ViewBag.machines.Count == 0)
-    {
-      <p>Nothing to see here</p>
-    }
-    <ul>
-      @foreach (Machine thing in ViewBag.machines)
-      {
-        <li>
-          @Html.ActionLink(@thing.Name, "Details", "Machines", new { id = @thing.MachineId })
-          <br>@thing.Description
-        </li>
-      }
-    </ul>
+  <hr>
+  <div id="home-links">
+  <h2 id="homelinks">What do we wanna do today?</h2>
+    <p id ="elink">@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
+    <p id ="elink">@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
+    <p id ="mlink">@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
+    <p id ="mlink">@Html.ActionLink("Manage machines", "Index", "Machines")</p>
   </div>
 </div>
-
-<hr>
-<h2>What do we wanna do today?</h2>
-<p>@Html.ActionLink("Add a new engineer", "Create", "Engineers")</p>
-<p>@Html.ActionLink("Manage engineers", "Index", "Engineers")</p>
-<p>@Html.ActionLink("Add a new machine", "Create", "Machines")</p>
-<p>@Html.ActionLink("Manage machines", "Index", "Machines")</p>
