@@ -45,7 +45,13 @@ An MVC web application to manage a factory's engineers and the machines they are
 3. In the command line, run the command ``dotnet restore`` to restore the necessary packages for the application to run
 4. Within the production level of this directory, called _**Factory**_, create a new file called **appsettings.json**
 5. Input the following code into your _**appsettings.json**_ file
-![screenshot of appsettings.json code](Factory/wwwroot/img/appsettingsText.png)
+
+``{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=[YOUR-DB-NAME];uid=[YOUR-USER-HERE];pwd=[YOUR-PASSWORD-HERE];"
+  }
+}``
+
 * Replace _[ YOUR-DB-NAME ]_ with the name you would like for the database that you will be utilizing via MySQL Workbench
 * Replace _[ YOUR-USER-HERE ]_ with your username for MySQL Workbench
 * Replace _[ YOUR-PASSWORD-HERE ]_ with your password for MySQL Workbench
